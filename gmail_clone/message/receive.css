@@ -1,0 +1,147 @@
+#message_box {
+	display: flex;
+}
+#message_box > #nav {
+	width: 260px;
+	height: 92vh;
+	background-color: #f6f8fc;
+}
+#message_box > #main {
+	width: 80vw;
+	height: 92vh;
+}
+#header {
+	width: 100vw;
+	height: 8vh;
+	background-color: #f6f8fc;
+}
+#nav > #write_message {
+	display: flex;
+	background-color: #c2e7ff;
+	padding: 20px 10px;
+	margin: 7px 0 25px 7px;
+	width: 110px;
+	height: 16px;
+	font-size: 14px;
+	align-items: center;
+	flex-direction: row;
+	border-radius: 18px;
+}
+
+/* lists */
+.ft_menu {
+	padding-left: 30px;
+	height: 25px;
+	text-align: center;
+	color: rgb(45, 45, 45);
+}
+#lists > .menu {
+	margin: 18px 0;
+	font-size: 15px;
+}
+.links {
+	display: block;
+	margin: 18px 0;
+	font-size: 15px;
+	text-decoration: none;
+}
+#lists > .links:hover {
+	width: 200px;
+	border-right: 1px solid #848484;
+	cursor: pointer;
+}
+#lists > .menu > .ft_menu {
+	padding-right: 18px;
+	font-size: 18px;
+}
+.contents {
+	display: inline-block;
+	margin-left:17px;
+	color: rgb(45, 45, 45);
+}
+
+.message {
+	display: flex;
+	width: 80vw;
+	height: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #f2f6fc;
+	align-items: center;
+}
+
+input[type="checkbox"]{
+	width: 15px; /*Desired width*/
+	height: 15px; /*Desired height*/
+	cursor: pointer;
+	border: 3px solid rgb(157, 157, 157);
+	background-color: #f2f6fc;
+	margin-left: 20px;
+}
+input[type="checkbox"]:checked {
+	background-color: #f2f6fc;
+	color: rgb(157, 157, 157);
+}
+
+.title {
+	color: rgb(73, 73, 73);
+	width: 220px;
+}
+.content {
+	display: block;
+	font-size: 16px;
+	color: rgb(73, 73, 73);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 48vw;
+	margin-right: 4vw;
+}
+.date {
+	font-size: 14px;
+	color: rgb(73, 73, 73);
+}
+.message_hover {
+	padding-left: 30px;
+	color: rgb(98, 98, 98);
+}
+
+/* function */
+#function {
+	display: flex;
+	align-items: center;
+	padding: 15px 0;
+	border-bottom: .5px solid gray;
+}
+#refresh {
+	font-size: 16px;
+	align-items: center;
+	color: rgb(73, 73, 73);
+	padding-left: 22px;
+}
+#page {
+	margin-left: 62.1vw;
+	font-size: 14px;
+}
+#next_page {
+	margin-left: 25px;
+}
+#before_page {
+	margin-left: 20px;
+}
+
+/* header_nav */
+#main_nav {
+	display: flex;
+	align-items: center;
+	height: 56px;
+	width: 250px;
+	color: rgb(31, 31, 198);
+	border-bottom: 3px solid rgb(31, 31, 198);
+}
+#main_nav > i {
+	margin: 0 20px;
+}
+#main_nav:hover {
+	background-color: #f2f6fb;
+}
