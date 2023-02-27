@@ -223,6 +223,7 @@ footer p {
 } */
 
 /* FLOATS */
+/*
 .author-img {
   float: left;
   margin-bottom: 20px;
@@ -242,15 +243,17 @@ nav {
   float: right;
 }
 
-/* .clear {
+**
+.clear {
   clear: both;
-} */
+}
+**
 
 .clearfix::after {
   clear: both;
   content: "";
   display: block;
-  /* block이어야 말을 듣는다. 한 행을 다 차지해야하고 높이 지정때문에 그런가? */
+  ** block이어야 말을 듣는다. 한 행을 다 차지해야하고 높이 지정때문에 그런가? **
 }
 
 article {
@@ -266,4 +269,60 @@ aside {
 
 footer {
   clear: both;
+}
+*/
+
+/* FLEXBOX */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 75px;
+}
+
+.author-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.author {
+  margin: 0 0 0 15px;
+}
+
+.related-post {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.related-link:link {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.related-author {
+  font-size: 14px;
+  margin-bottom: 0;
+  font-style: italic;
+  font-weight: normal;
+}
+
+article {
+  flex: 1;
+  /* flex 1로 주면 커질 수 있는 만큼 최대로 커진다. */
+}
+
+aside {
+  flex: 0 0 300px;
+  padding: 50px 20px;
 }
