@@ -1,0 +1,36 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  border: 1px solid black;
+  margin: 20px;
+}
+
+/* ease ; 천천-빠름-천천
+linear ; 등속
+ease-in ; 천천-보통
+ease-out ; 보통-천천
+ease-in-out ; 천천-보통-천천
+cubic-bezier ; 커스텀
+steps ; 뚝뚝 끊어 보여준다 */
+
+.box01 {
+  transition: width 0.3s steps(2);
+}
+.box01:hover {
+  width: 200px;
+}
+
+.box02 {
+  transition: background-color 0.2s linear;
+}
+.box02:hover {
+  background-color: aquamarine;
+}
+
+.box03 {
+  transition: margin 0.2s ease-in;
+}
+.box03:hover {
+  margin: 10px;
+}
