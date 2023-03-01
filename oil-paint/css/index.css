@@ -1,0 +1,130 @@
+/*==================
+=       INIT       =
+==================*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(../img/background-img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* **************** */
+/* **** HEADER **** */
+/* **************** */
+
+.main-header {
+  height: 30px;
+  padding: 30px 90px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signUp-logIn {
+  display: flex;
+  justify-content: end;
+  gap: 30px;
+  margin-right: 70px;
+}
+
+.signUp-logIn a:link,
+:visited {
+  font-family: monospace, sans-serif;
+  color: rgb(210, 210, 210);
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* //////////////////////// */
+/* //// WELCOM MESSAGE //// */
+/* //////////////////////// */
+
+main {
+  text-align: center;
+}
+
+.welcome-message {
+  margin-top: 20vh;
+  margin-bottom: 200px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 100px;
+  font-family: "Gloock", serif;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #abdbff, #abc2de, #fff, #abdbff);
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* background-repeat: no-repeat; */
+  /* 이걸 끄면 배경이 안사라짐 */
+  background-size: 80%;
+  animation: shine 10s linear infinite;
+  position: relative;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+/* //////////////// */
+/* //// BUTTON //// */
+/* //////////////// */
+/* 뭔가 위에거 가운데 텍스트 입력하면 자동으로 위 아래 개수 맞춰주는 프로그램 만들고 싶다. */
+
+.btn {
+  color: #d6d6d6;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 0 0 2em;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  background-color: rgb(28, 28, 73);
+}
+
+.start-button {
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 2px solid;
+  outline-color: rgba(139, 149, 233, 0.5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  border: 1px solid rgb(12, 12, 101);
+}
+
+.start-button:hover {
+  border: 3px solid;
+  box-shadow: inset 0 0 20px rgba(183, 183, 183, 0.5),
+    0 0 20px rgba(131, 142, 248, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+}
+
+.start-button a:link,
+:visited {
+  text-decoration: none;
+}
