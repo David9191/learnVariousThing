@@ -18,7 +18,7 @@ body {
 }
 
 article {
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
   position: relative;
 }
 
@@ -26,7 +26,7 @@ article {
   background-color: #f2f2f2;
   border-top: 5px solid #1098ad;
   padding: 20px 40px;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
   /* height: 80px; */
 }
 
@@ -279,12 +279,12 @@ footer {
   justify-content: space-between;
 }
 
-.main {
+/* .main {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 75px;
-}
+} */
 
 .author-box {
   display: flex;
@@ -317,12 +317,40 @@ footer {
   font-weight: normal;
 }
 
-article {
+/* article {
   flex: 1;
-  /* flex 1로 주면 커질 수 있는 만큼 최대로 커진다. */
-}
+  flex 1로 주면 커질 수 있는 만큼 최대로 커진다.
+} */
 
 aside {
   flex: 0 0 300px;
   padding: 50px 20px;
 }
+
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  /* grid row는 설정하지 않는 게 일반적이다.
+      왜? 컨텐츠의 높이에 맞게 크기를 맞출려고
+      굳이 강제로 height를 설정하지 않고
+      가장 긴 컨텐츠에게 맞추(기)는 느낌스 */
+  /* grid-template-rows: 50px 1fr 25px; */
+  column-gap: 75px;
+  row-gap: 60px;
+  align-items: start;
+}
+
+.main-header {
+  grid-column: 1 / -1;
+}
+
+footer {
+  grid-column: 1 / -1;
+}
+
+/* article {
+} */
+
+/* aside {
+} */
