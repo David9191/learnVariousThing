@@ -1,0 +1,24 @@
+라우팅은 클라이언트 요청, 즉 특정 URL에 어떤게 반응하는지 결정하는 거다.
+
+app.get('/', () => {
+  // 사용자가 /로 들어왔을 때 우리가 원하는 반응
+	// 어쨋든 콜백안에서 해야됨.
+});
+
+Restful API를 사용하기 위해선 몇가지 아키텍쳐만 따르면 된다.
+1. separate API into lofical resource
+2. Expose struc
+
+URL 요청할 때 일반적으로 복수형으로 적는다.
+그리고 하나만 보고 싶을 때는 /id 를 적는다.
+ex/ /tours/7
+
+GET				get read
+POST			생성 create
+PUT/PATCH	수정 update
+DELETE		삭제 delete
+
+// 이러면 y가 안들어와도 에러가 안생김
+app.get('/api/v1/tours/:id/:x/:y?', (req, res) => {});
+// req.params는 우리가 정의한 모든 변수들이 있다.
+console.log(req.params)

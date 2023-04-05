@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <style>
+      .userLists {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        margin-top: 50px;
+        text-align: center;
+      }
+      .userLists table {
+        margin: 0 auto;
+        text-align: center;
+      }
+    </style>
+    <title>AllUserList🔥</title>
+  </head>
+  <body>
+    <div class="userLists">
+      <h1>User List</h1>
+
+      <table border="1px solid black" width="1500px">
+        <thead>
+          <td>NO.</td>
+          <td>name</td>
+          <td>email</td>
+          <td>age</td>
+          <td>phone</td>
+          <td>thumbnail</td>
+          <td>location</td>
+          <td>gender</td>
+          <td>detail</td>
+        </thead>
+        {%USERLISTS%}
+      </table>
+    </div>
+  </body>
+</html>

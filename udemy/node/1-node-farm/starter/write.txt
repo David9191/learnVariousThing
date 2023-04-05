@@ -1,0 +1,57 @@
+nodejs는 싱글스레드.
+모든 사용자가 같은 스레드로 모인다.
+5명, 5천, 5백만명이든 싱글로 모인다.
+
+이럼 어떤 문제가 생기냐?
+한 사용자가 동기적으로 파일 읽는 작업을 요청하면
+다른 사용자는 실행이 끝날 때까지 아무것도 못한다.
+
+그래서 동기말고 비동기로 써야된다.
+아 그래서 node가 싱글스레드라서 유저가 많아지면 느려지는 거구나.
+
+node에서는 비동기 작업을 콜백으로 많이 사용하는데 첫 번쨰 매개변수는 주로 error다.
+
+writeFile에는 콜백 인자에 data가 없다.
+
+readFile 은 1번째 인자 path로 전달받은 파일에 접근해서 2번째 인자 encoding 방식으로 인코딩하고 결과가 끝나면 3번쨰 인자로 넘어온 콜백 함수를 실행한다.
+결과가 있기 전까지는 아래 코드 실행. 비동기 굿.
+
+--------------
+
+routing
+라우팅은 기본적으로 다른 URL에 대해 다른 액션을 취하는 것이다.
+
+
+---------------
+npm(node package manager)
+cli. 오픈소스 패키지를 설치하고 삭제하는 기능을 제공한다.
+사이트에서 모듈이나 패키지를 볼 수 있다.
+
+보통 새 프로젝트를 시작할 때마다 npm init을 해준다.
+
+dependency, dev-dependency
+
+package.json
+
+third-party-module 사용법
+1. npm install [moduleName]
+2. require('moduleName')
+3. use them
+
+위치별 버전 이름
+1.6.6
+main minor fetch
+
+main: may break code. big change
+minor: add feature. but not break code
+fetch: fix bug
+
+npm outdated -> show to need to update module, package
+npm i slugify@1.0.0 -> you can install to you wnat version
+
+delete package
+npm i express
+npm uninstall express
+
+만약에 컴퓨터 자리를 옮겨서 node_module이 없으면 어떡하지?
+간단해 npm install만 해주면 다 다운받아진다.

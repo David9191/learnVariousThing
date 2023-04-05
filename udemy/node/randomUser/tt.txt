@@ -1,0 +1,17 @@
+name.first name.last
+email
+dob.age
+phone
+picture.thumbnail
+location.country location.state location.city
+gender
+
+
+<p>name: {%USERNAME%}</p>
+<p>email: {%EMAIL%}</p>
+<p>age: {%AGE%}</p>
+<p>phone: {%PHONE%}</p>
+<p>thumbnail: {%THUMBNAIL%}</p>
+<p>location: {%LOCATION%}</p>
+<p>gender: {%GENDER%}</p>
+
