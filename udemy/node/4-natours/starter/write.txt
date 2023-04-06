@@ -6,8 +6,8 @@ app.get('/', () => {
 });
 
 Restful API를 사용하기 위해선 몇가지 아키텍쳐만 따르면 된다.
-1. separate API into lofical resource
-2. Expose struc
+1. separate API into logical resource
+2. Expose structure
 
 URL 요청할 때 일반적으로 복수형으로 적는다.
 그리고 하나만 보고 싶을 때는 /id 를 적는다.
@@ -22,3 +22,78 @@ DELETE		삭제 delete
 app.get('/api/v1/tours/:id/:x/:y?', (req, res) => {});
 // req.params는 우리가 정의한 모든 변수들이 있다.
 console.log(req.params)
+
+익스프레스에서는 미들웨어가 정의된 순서대로 실행된다.
+
+수신 요청으로 시작해 미들웨어 스택에서 미들웨어 전체를 단계별로 실행하고
+마침내 사이클을 끝내기 위한 응답을 보낸다. 그러니까 복잡할 거 없어요. 순차적인 과정이에요.
+
+미들웨어에서 next를 안하면 다음으로 넘어갈 수 없으므로 무조건 next()를 하자
+route 도 middleware 다.
+
+익스프레스는 요청과 응답 사이에 미들웨어 스택을 만들고 순서대로 처리한다.(like 동기)
+
+// app.get('/api/v1/tours', getAllTours);
+// app.post('/api/v1/tours', createTour);
+// app.get('/api/v1/tours/:id', getTour);
+// app.patch('/api/v1/tours/:id', updateTour);
+// app.delete('/api/v1/tours/:id', deleteTour);
+
+// 3) MIDDLEWARE
+app.route('/api/v1/tours').get(getAllTours).post(createTour);
+
+app
+  .route('/api/v1/tours/:id')
+  .get(getTour)
+  .patch(updateTour)
+  .delete(deleteTour);
+
+아래와 같은 작업을 마운팅한다고 한다.
+const tourRouter = express.Router();
+const userRouter = express.Router();
+
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
+
+라우터들이 각각의 하나의 파일에 있고 각각은 하나의 작은 하위 애플리케이션이라고 할 수 있죠.
+하나는 투어앱이고 하나는 사용자 앱이죠.
+그리고 라우터들을 불러와서 모든 것들을 글로벌 앱 파일에 저장합니다.
+그리고 라우터를 두 개의 다른 경로에 마운트합니다.
+
+이 개념이 어렵다는 거 알지만 걱정하지 마세요.
+이 프로젝트를 오래 할수록 코드를 더 많이 작성할수록
+모든 게 자동으로 명확해져요.
+
+지금 기억해야 할 가장 중요한 것은 각각의 리소스를 위해 서로 다른 라우터를 만들었다는 겁니다. 
+
+기본적으로 각각을 위한 작은 응용 프로그램을 하나 만들고 모든 걸 하나의 메인 앱 파일에 넣는 거죠. /* 이게 그건가? 싱글 페이지 어플리케이션? */
+
+app.js는 주로 미들웨어 선언에 사용된다.
+
+
+많은 파일이 있는데 익숙해지는 게 중요하다. 파일이 어디 있는지.
+다시 요약하자면 흐름은 이래요.
+app.js 에서 요청을 받기 시작하죠?
+라우터에 따라 라우터 중(tour, user) 하나에 입력합니다.
+투어 라우터라고 하면 해당 라우터의
+요청(http method)에 따라 이 컨트롤러
+중 하나를 실행합니다. 이것들은 투어콘트롤러 파일에 있죠.
+그럼 마침내 응답이 전송되고 요청-응답 사이클이 끝나죠.
+
+server.js를 또 따로 만들거다. 왜?
+이건 좋은 연습이다. 하나의 파일에 하나의 기능만!
+하나는 서버에 관련된 모든 걸 넣고
+하나는 express와 관련된 모든 걸 넣는다.
+
+router파일에서는 controller에서 만든 함수만 갖다 쓰는구나.
+로직은 router파일에서 진행되고 controller에서는 로직이 진행되지 않고
+온리 기능만 구현되어 있구나.
+checkID를 만들고 컨트롤러에 각 함수에서 호출하는 게 아니라
+라우터에서 맨 처음에 아이디를 체크하고 에러나면 넥스트로 안가고
+정상이면 넥스트로 가는구나. 신기하고 엄청 효율적이다!!
+
+param 미들웨어는 특정 매개 변수에 대해서만 실행되는 미들웨어 이다.
+
+
+----------------------------
+
