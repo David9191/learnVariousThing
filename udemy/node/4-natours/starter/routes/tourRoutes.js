@@ -1,8 +1,9 @@
 const express = require('express');
-const router = express.Router();
 const tourController = require('../controller/tourController');
 
-router.param('id', tourController.checkID);
+const router = express.Router();
+
+// router.param('id', tourController.checkID);
 
 // Create a checkBody middleware
 // Check if body contains the name and price property
@@ -13,7 +14,9 @@ router
   .route('/')
   .get(tourController.getAllTours)
   // checkBody에서 next하면 createTour로 간다.
-  .post(tourController.checkBody, tourController.createTour);
+  .post(tourController.createTour);
+// 갑자기 든 생각 미들웨어를 여러개 쓸 때는 데이터를 next에 어떻게 넘길까?
+// req.body에 붙이나?
 
 router
   .route('/:id')
