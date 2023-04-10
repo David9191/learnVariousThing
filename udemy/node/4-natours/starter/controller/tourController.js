@@ -1,8 +1,59 @@
 const Tour = require('../models/tourModel');
 
+exports.aliasTopTours = async (req, res, next) => {
+  req.query.limit = '5';
+  req.query.sort = '-ratingsAverage,price';
+  req.query.fields = 'name,price,ratingsAverage,summary,difficulty';
+  next();
+};
+
 exports.getAllTours = async (req, res) => {
   try {
-    const tours = await Tour.find();
+    console.log(req.query);
+    // 1A) Filtering
+    const queryObj = { ...req.query };
+    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+    excludedFields.forEach((item) => delete queryObj[item]);
+
+    // 1B) Advenced Filtering
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+
+    let query = Tour.find(JSON.parse(queryStr));
+
+    // 2) Sorting 내림차순은 sort=-price
+    if (req.query.sort) {
+      const sortBy = req.query.sort.split(',').join(' ');
+      query = query.sort(sortBy);
+    } else {
+      query = query.sort('_id');
+    }
+
+    // 3) Field limiting
+    if (req.query.fields) {
+      const filed = req.query.fields.split(',').join(' ');
+      query = query.select(filed);
+    } else {
+      query = query.select('-__v');
+    }
+
+    // 4) Pagination
+    const page = req.query.page * 1 || 1; // 몇 번째 페이지부터 볼건지
+    const limit = req.query.limit * 1 || 10; // 한 페이지당 몇개 볼건지
+    const skip = (page - 1) * limit; // 건너뛸 문서의 수
+
+    console.log(`page: ${page}, limit: ${limit}, skip: ${skip}`);
+
+    query = await query.skip(skip).limit(limit);
+
+    if (req.query.page) {
+      const numTours = await Tour.countDocuments();
+      console.log(`numTours: ${numTours}`);
+      if (skip >= numTours) throw new Error('gt');
+    }
+
+    // EXECUTE QUERY
+    const tours = await query;
 
     res.status(200).json({
       status: 'success',
@@ -54,7 +105,8 @@ exports.createTour = async (req, res) => {
   } catch (error) {
     res.status(400).json({
       status: 'fail',
-      message: error,
+      err: error,
+      message: error.message,
     });
   }
 };
