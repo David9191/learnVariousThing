@@ -1,3 +1,10 @@
 node_modules
 node_modules/*
 */*.DS_Store
+udemy/node/4-natours/after-section-11/config.env
+udemy/node/4-natours/starter/config.env
+udemy/node/4-natours/starter/ddd.txt
+.env
+.env.test
+*.env
+
