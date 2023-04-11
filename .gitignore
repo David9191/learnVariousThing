@@ -7,4 +7,4 @@ udemy/node/4-natours/starter/ddd.txt
 .env
 .env.test
 *.env
-
+*/*.env
