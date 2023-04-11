@@ -1,0 +1,6 @@
+node_modules
+node_modules/*
+*/*.DS_Store
+udemy/node/4-natours/.DS_Store
+udemy/node/4-natours/starter/node_modules
+udemy/node/4-natours/starter/config.env
