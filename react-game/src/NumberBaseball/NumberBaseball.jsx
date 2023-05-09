@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-const getRandomNumber = n => {
+const getRandomNumber = () => {
+  const iter = 4;
   let array = [];
 
-  for (let index = 0; index < n; index++) {
+  for (let index = 0; index < iter; index++) {
     let randomNumber = Math.floor(Math.random() * 9) + 1;
 
     while (array.includes(randomNumber)) {
@@ -28,7 +29,7 @@ const compareNumber = (answer, inputValue) => {
       }
     }
   }
-  // console.log("compareNumber : ", result);
+  console.log("compareNumber : ", result);
   return result;
 };
 
@@ -39,8 +40,7 @@ const setNewArray = (array, inputValue, result) => {
 };
 
 const NumberBaseball = () => {
-  const n = 4;
-  const [answer, setAnswer] = useState(getRandomNumber(n));
+  const [answer, setAnswer] = useState(getRandomNumber);
   const [result, setResult] = useState({ strike: 0, ball: 0 });
   const [beforeAnswer, setBeforeAnswer] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -56,7 +56,7 @@ const NumberBaseball = () => {
 
     if (newResult.strike === answer.length) {
       alert(`${inputValue} 정답입니다!`);
-      setAnswer(getRandomNumber(n));
+      setAnswer(getRandomNumber());
       setResult({ strike: 0, ball: 0 });
       setBeforeAnswer([]);
       setInputValue("");
