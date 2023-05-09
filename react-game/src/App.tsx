@@ -1,11 +1,11 @@
 import React from "react";
-import WordReplay from "./WordReplay/WordReplay.jsx";
+import NumberBaseball from "./NumberBaseball/NumberBaseball.jsx";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <WordReplay />
+      <NumberBaseball />
     </div>
   );
 }

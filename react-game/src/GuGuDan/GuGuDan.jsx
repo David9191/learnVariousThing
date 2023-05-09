@@ -7,7 +7,7 @@ const GuGuDan = () => {
   const [result, setResult] = useState("과연?");
   const [beforeResult, setBeforeResult] = useState();
 
-  const handleChange = event => setInputValue(event.target.value);
+  const handleInputChange = event => setInputValue(event.target.value);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -30,7 +30,7 @@ const GuGuDan = () => {
         {first} 곱하기 {second}는?
       </div>
       <form onSubmit={handleSubmit}>
-        <input type="number" value={inputValue} onChange={handleChange} />
+        <input type="number" value={inputValue} onChange={handleInputChange} />
         <button type="submit">맞추기!</button>
       </form>
       <p className="result">
