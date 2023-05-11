@@ -1,22 +1,9 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import MyButton from "./MyButton";
+import TestProps from "./JSX/TestProps";
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
-  return (
-    <div className="App">
-      <h1>Welcome to my app</h1>
-      <MyButton count={count} onClick={handleClick} />
-      <MyButton count={count} onClick={handleClick} />
-    </div>
-  );
+  return <TestProps person={{ name: "Ji", age: 24 }} size={185} />;
 };
 
 const products = [
