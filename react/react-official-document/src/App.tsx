@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import TestProps from "./JSX/TestProps";
+import TestProps from "./Jsx/TestProps";
 
 const App = () => {
   return <TestProps person={{ name: "Ji", age: 24 }} size={185} />;
