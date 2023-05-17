@@ -1,22 +1,18 @@
+import { useState } from 'react';
 import './App.css';
-import MyComponent from './MyComponent';
-import Counter from './Counter';
-import Say from './Say';
-import EventPracticeCopy from './EventPracticeCopy';
-import EventPractice from './EventPractice';
-import ScrollBox from './ScrollBox'; // 얘는 App을 class로 바꿔줘야함.
-import IterationSample from './IterationSample';
+import Counter from './Hooks/Counter';
+import Info from './Hooks/Info';
+import Average from './Hooks/Average';
 
 const App = () => {
   return (
-    <div>
-      {/* <MyComponent favoriteNumber={5}>React</MyComponent> */}
-      {/* <Counter /> */}
-      {/* <Say /> */}
-      {/* <EventPractice />
-      <EventPracticeCopy /> */}
-      <IterationSample />
-    </div>
+    <>
+      <Counter />
+      <br />
+      <Info />
+      <br />
+      <Average />
+    </>
   );
 };
 
