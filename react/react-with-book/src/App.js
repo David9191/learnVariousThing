@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MyComponent from "./MyComponent";
+import Counter from "./Counter";
+import Say from "./Say";
+import EventPracticeCopy from "./EventPracticeCopy";
+import EventPractice from "./EventPractice";
+import ScrollBox from "./ScrollBox"; // 얘는 App을 class로 바꿔줘야함.
+import IterationSample from "./IterationSample";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <MyComponent favoriteNumber={5}>React</MyComponent> */}
+      {/* <Counter /> */}
+      {/* <Say /> */}
+      {/* <EventPractice />
+      <EventPracticeCopy /> */}
+      <IterationSample />
     </div>
   );
-}
+};
 
 export default App;
