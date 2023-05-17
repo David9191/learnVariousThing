@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Counter extends Component {
   // constructor(props) {
@@ -35,7 +35,7 @@ class Counter extends Component {
           // this.setState가 끝난 후 특정 작업 실행하기
           onClick={() => {
             this.setState({ number: number + 1 }, () => {
-              console.log("good");
+              console.log('good');
             });
           }}
         >

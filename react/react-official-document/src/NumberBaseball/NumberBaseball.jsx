@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const getRandomNumber = () => {
   const iter = 4;
@@ -12,7 +12,7 @@ const getRandomNumber = () => {
     }
     array = [...array, randomNumber];
   }
-  return array.join("");
+  return array.join('');
 };
 
 const compareNumber = (answer, inputValue) => {
@@ -24,12 +24,12 @@ const compareNumber = (answer, inputValue) => {
         result.strike++;
         break;
       } else if (answer[i] === inputValue[k] && i !== k) {
-        result["ball"]++;
+        result['ball']++;
         break;
       }
     }
   }
-  console.log("compareNumber : ", result);
+  console.log('compareNumber : ', result);
   return result;
 };
 
@@ -43,11 +43,11 @@ const NumberBaseball = () => {
   const [answer, setAnswer] = useState(getRandomNumber);
   const [result, setResult] = useState({ strike: 0, ball: 0 });
   const [beforeAnswer, setBeforeAnswer] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = e => setInputValue(e.target.value);
+  const handleInputChange = (e) => setInputValue(e.target.value);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const newResult = compareNumber(answer, inputValue);
@@ -59,7 +59,7 @@ const NumberBaseball = () => {
       setAnswer(getRandomNumber());
       setResult({ strike: 0, ball: 0 });
       setBeforeAnswer([]);
-      setInputValue("");
+      setInputValue('');
       return;
     }
   };
@@ -82,10 +82,11 @@ const NumberBaseball = () => {
       <ol>
         {beforeAnswer.map((beforeAnswer, index) => {
           return (
-            <li key={"beforeAnswer" + beforeAnswer.strike + index}>
+            <li key={'beforeAnswer' + beforeAnswer.strike + index}>
               {beforeAnswer.inputValue}
               <div>
-                {beforeAnswer.result.strike}strike. {beforeAnswer.result.ball}ball.
+                {beforeAnswer.result.strike}strike. {beforeAnswer.result.ball}
+                ball.
               </div>
             </li>
           );

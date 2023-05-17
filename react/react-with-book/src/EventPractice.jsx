@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const EventPractice = () => {
   const [form, setForm] = useState({
-    username: "",
-    message: "",
+    username: '',
+    message: '',
   });
   const { username, message } = form;
-  const onChange = e => {
+  const onChange = (e) => {
     const nextForm = {
       ...form,
       [e.target.name]: e.target.value,
@@ -15,14 +15,14 @@ const EventPractice = () => {
     console.log(nextForm);
   };
   const onClick = () => {
-    alert(username + ": " + message);
+    alert(username + ': ' + message);
     setForm({
-      username: "",
-      message: "",
+      username: '',
+      message: '',
     });
   };
-  const onKeyDown = e => {
-    if (e.key === "Enter") {
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter') {
       onClick();
     }
   };
@@ -31,7 +31,13 @@ const EventPractice = () => {
     <div>
       <input type="text" />
       <h1>이벤트 연습</h1>
-      <input type="text" name="username" placeholder="사용자명" value={username} onChange={onChange} />
+      <input
+        type="text"
+        name="username"
+        placeholder="사용자명"
+        value={username}
+        onChange={onChange}
+      />
       <input
         type="text"
         name="message"

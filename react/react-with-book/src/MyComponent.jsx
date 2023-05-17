@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // const MyComponent = ({ name, favoriteNumber, children }) => {
 //   return (
@@ -26,7 +26,7 @@ class MyComponent extends Component {
 }
 
 MyComponent.defaultProps = {
-  name: "Default Name",
+  name: 'Default Name',
 };
 
 MyComponent.propTypes = {

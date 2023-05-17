@@ -1,8 +1,14 @@
-import React from "react";
-import { useState } from "react";
-import "./TicTacToe.css";
+import React from 'react';
+import { useState } from 'react';
+import './TicTacToe.css';
 
-const Square = ({ value, onSquareClick }: { value: string | null; onSquareClick: () => void }) => {
+const Square = ({
+  value,
+  onSquareClick,
+}: {
+  value: string | null;
+  onSquareClick: () => void;
+}) => {
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -15,7 +21,7 @@ const Board = () => {
 
   const handleClick = (i: number) => {
     const nextSquares = squares.slice();
-    nextSquares[i] = "X";
+    nextSquares[i] = 'X';
     setSquares(nextSquares);
   };
 

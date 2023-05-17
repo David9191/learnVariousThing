@@ -1,26 +1,26 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const GuGuDan = () => {
   const [first, setFirst] = useState(~~(Math.random() * 9));
   const [second, setSecond] = useState(~~(Math.random() * 9));
   const [inputValue, setInputValue] = useState();
-  const [result, setResult] = useState("과연?");
+  const [result, setResult] = useState('과연?');
   const [beforeResult, setBeforeResult] = useState();
 
-  const handleInputChange = event => setInputValue(event.target.value);
+  const handleInputChange = (event) => setInputValue(event.target.value);
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     if (Number(inputValue) === first * second) {
-      setResult(" 정답! 다음 문제로!");
+      setResult(' 정답! 다음 문제로!');
       setFirst(~~(Math.random() * 10) + 1);
       setSecond(~~(Math.random() * 10) + 1);
     } else {
-      setResult(" 땡!(나영석) 못 넘어가!");
+      setResult(' 땡!(나영석) 못 넘어가!');
     }
     setBeforeResult(inputValue);
-    setInputValue("");
+    setInputValue('');
   };
 
   return (

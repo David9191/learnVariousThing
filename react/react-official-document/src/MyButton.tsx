@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import { useState } from "react";
 
 type MyButtonProps = {
@@ -12,7 +12,7 @@ const MyButton = ({ count, onClick }: MyButtonProps) => {
       <button onClick={onClick}>Click me</button>
       <span
         style={{
-          marginLeft: "1rem",
+          marginLeft: '1rem',
         }}
       >
         Clicked {count} times
