@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useReducer, useRef, useState } from 'react';
 import TodoTemplate from './todoApp/TodoTemplate';
 import TodoInsert from './todoApp/TodoInsert';
 import TodoList from './todoApp/TodoList';
@@ -15,53 +15,41 @@ function createBulkTodos() {
   return array;
 }
 
+function todoReducer(todos, action) {
+  switch (action.type) {
+    case 'INSERT':
+      return todos.concat(action.todo);
+    case 'REMOVE':
+      return todos.filter((todo) => todo.id !== action.id);
+    case 'TOGGLE':
+      return todos.map((todo) =>
+        todo.id === action.id ? { ...todo, checked: !todo.checked } : todo,
+      );
+    default:
+      return todos;
+  }
+}
+
 const App = () => {
-  const [todos, setTodos] = useState(createBulkTodos);
+  const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
   const nextId = useRef(5001);
 
-  const onInsert = useCallback(
-    (text) => {
-      const newTodo = {
-        id: nextId.current,
-        text,
-        checked: false,
-      };
-      setTodos(todos.concat(newTodo));
-      nextId.current += 1;
-    },
-    [todos],
-  );
-
-  // const onRemove = useCallback(
-  //   (id) => {
-  //     const newTodos = todos.filter((todo) => todo.id !== id);
-  //     setTodos(newTodos);
-  //   },
-  //   [todos],
-  // );
-  // 최신 todos의 상태를 받기 위해 의존성 배열에 todos를 넣어줬다.
-
-  const onRemove = useCallback((id) => {
-    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  const onInsert = useCallback((text) => {
+    const newTodo = {
+      id: nextId.current,
+      text,
+      checked: false,
+    };
+    dispatch({ type: 'INSERT', todo: newTodo });
+    nextId.current += 1;
   }, []);
 
-  // const onToggle = useCallback(
-  //   (id) => {
-  //     setTodos(
-  //       todos.map((todo) => {
-  //         return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
-  //       }),
-  //     );
-  //   },
-  //   [todos],
-  // );
+  const onRemove = useCallback((id) => {
+    dispatch({ type: 'REMOVE', id });
+  }, []);
 
   const onToggle = useCallback((id) => {
-    setTodos((todos) =>
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-      ),
-    );
+    dispatch({ type: 'TOGGLE', id });
   }, []);
 
   return (
