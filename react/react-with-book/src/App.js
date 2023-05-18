@@ -1,16 +1,7 @@
-import { useState } from 'react';
-import './App.css';
-import Counter from './Hooks/Counter';
-import Info from './Hooks/Info';
-import Average from './Hooks/Average';
-import CSSModule from './styling/CSSModule';
+import React from 'react';
 
 const App = () => {
-  return (
-    <>
-      <CSSModule />
-    </>
-  );
+  return <div>Todo App을 만들자!</div>;
 };
 
 export default App;
