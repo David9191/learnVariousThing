@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {
-  BrowserRouter,
-  Routes,
-} from '../node_modules/react-router-dom/dist/index';
-import RouterApp from './router-turorial/RouterApp';
+import App from './App';
+import NewsApp from './news-viewr/NewsApp';
+import { BrowserRouter } from '../node_modules/react-router-dom/dist/index';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <RouterApp />
+      <NewsApp />
     </React.StrictMode>
   </BrowserRouter>,
 );
