@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { produce } from '../../node_modules/immer/dist/immer';
+import { produce } from 'immer';
 
 const ImmerApp = () => {
   const nextId = useRef(1);
