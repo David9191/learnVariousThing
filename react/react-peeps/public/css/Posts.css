@@ -1,0 +1,41 @@
+@import url("./reset.css");
+
+@media screen and (max-width: 425px) {
+  /* POSTS */
+  .community-posts-outer {
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  .community-posts-ul {
+    list-style: none;
+  }
+  .community-posts-li {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .community-posts-a {
+    display: block;
+    width: calc(100vw - 98px);
+    padding: 11px 12px 25px 0;
+  }
+  .community-posts-image {
+    position: relative;
+    top: 8px;
+    right: 10px;
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+  }
+  .community-posts-strong {
+    font-size: 16px;
+  }
+  .community-posts-info {
+    font-size: 12px;
+    color: #979797;
+  }
+  .community-posts-info span {
+    padding-right: 7px;
+  }
+}
