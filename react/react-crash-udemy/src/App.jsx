@@ -1,5 +1,4 @@
 import PostsList from "./components/PostsList";
-import MainHeader from "./components/MainHeader.jsx";
 
 function App() {
   return (
