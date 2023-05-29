@@ -1,11 +1,9 @@
-import PostsList from "./components/PostsList";
+import Counter from "./components/redux-basic/Counter";
 
 function App() {
   return (
     <>
-      <main>
-        <PostsList />
-      </main>
+      <Counter />
     </>
   );
 }
