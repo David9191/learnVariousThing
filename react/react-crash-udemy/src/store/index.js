@@ -1,8 +1,14 @@
 import { legacy_createStore } from "redux";
 
-const initialState = { counter: 0, showCounter: true };
+const initialState = {
+  counter: 0,
+  showCounter: true,
+};
 
 export const INCREMENT = "increment";
+export const DECREMENT = "decrement";
+export const INCREASE = "increase";
+export const TOGGLE = "toggle";
 
 const counterReducer = (state = initialState, action) => {
   if (action.type === INCREMENT) {
@@ -10,12 +16,12 @@ const counterReducer = (state = initialState, action) => {
       counter: state.counter + 1,
       showCounter: state.showCounter,
     };
-  } else if (action.type === "increase") {
+  } else if (action.type === INCREASE) {
     return {
       counter: state.counter + action.amount,
       showCounter: state.showCounter,
     };
-  } else if (action.type === "decrement") {
+  } else if (action.type === DECREMENT) {
     return {
       counter: state.counter - 1,
       showCounter: state.showCounter,

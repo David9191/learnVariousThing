@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
-import { INCREMENT } from "../../store/index";
+import { INCREMENT, DECREMENT, INCREASE, TOGGLE } from "../../store/index";
 
 const CounterBlock = styled.main`
   margin: 5rem auto;
@@ -38,17 +38,17 @@ const Counter = () => {
 
   const increaseHandler = () => {
     dispatch({
-      type: "increase",
+      type: INCREASE,
       amount: 5,
     });
   };
 
   const decrementHandler = () => {
-    dispatch({ type: "decrement" });
+    dispatch({ type: DECREMENT });
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: "toggle" });
+    dispatch({ type: TOGGLE });
   };
 
   return (
