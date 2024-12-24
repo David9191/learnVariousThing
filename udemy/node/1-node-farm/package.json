@@ -9,7 +9,7 @@
   "author": "Ji",
   "license": "ISC",
   "dependencies": {
-    "experss": "^0.0.1-security",
+    "experss": "@0.0.1-security",
     "slugify": "~1.6.6"
   }
 }
